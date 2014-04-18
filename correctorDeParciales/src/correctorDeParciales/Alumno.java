@@ -14,7 +14,7 @@ public class Alumno {
 		respuesta = Character.toString(respuesta.charAt(0)).toUpperCase()+respuesta.substring(1);
 		*/
 		
-		
+		//No comparen con ==, ya que comparan objetos. Utilicen el mensaje "equals"
 		if (examen.respuesta(numeroDePregunta) == respuesta) {
 			puntajeAcumulado+= examen.valorDeLaPregunta(numeroDePregunta);
 			

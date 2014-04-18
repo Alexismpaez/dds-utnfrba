@@ -11,21 +11,11 @@ public class CriterioPromedio extends CriterioDeCorreccion {
 		criterios = criteriosAUsar;
 	}
 
+	// No me funciona todo lo que es stream() así que queda pendiente
+	// hacerlo bien.	
 	public double notaFinal(double puntos, double cantidadDePuntosDelExamen) {
-		// No me funciona todo lo que es stream() así que queda pendiente
-		// hacerlo bien.
-		double acumulador = 0;
-
-		for (int i = 0; i < criterios.size(); i++) {
-
-			acumulador += criterios.get(i).notaFinal(puntos,
-					cantidadDePuntosDelExamen);
-		}
-
-		acumulador = acumulador / criterios.size();
-
-		return acumulador;
-
+		// Lo hice asi, porque no encontre el average, pero fijense que se reduce bastante, queda más declarativo
+		return criterios.stream().mapToDouble((CriterioDeCorreccion c) -> c.notaFinal(puntos, cantidadDePuntosDelExamen)).sum() / criterios.size();
 	}
 
 }

@@ -27,6 +27,10 @@ public class Examen {
 		return (preguntas.get(numeroDePregunta).peso);
 	}
 
+	
+	//Usen las operaciones sobre colecciones que incluyen Java8, por eso lo usamos.
+	//El código no solo gana en prolijidad, sino que se evitan errores y el diseño gana declaratividad
+	
 	public double puntajeMaximo() {
 
 		double acumulador = 0;

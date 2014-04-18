@@ -4,6 +4,14 @@ import java.util.List;
 
 class Main {
 	
+	/*
+	 * Está bien la idea de plasmar cómo funciona un sistema, mostrando cómo es que se envían mensajes y resuelven el problema
+	 * pero en el código esta clase no sirve, no tiene sentido. Lo que tienen que hacer, es esto mismo pero con tests, por que
+	 * es mucho más fácil de mantener, ya que si tengo que hacer una nueva funcionalidad, que modifica algo, me es muy útil, una vez que terminé,
+	 * correr todos los test para ver si no rompió nada de lo que hice. En cambio, con este main, tengo que recordar qué valor debía devolver
+	 * 
+	 */
+	
 	public static void main(String[] args) {
 		
 		Alumno alumno;
