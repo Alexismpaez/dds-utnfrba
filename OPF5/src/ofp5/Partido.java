@@ -1,38 +1,27 @@
 package ofp5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Partido {
 	public int hora;
-	Jugador[] listaJugadores = new Jugador[10];
-	boolean partidoCompleto;
+	List<Jugador> listaJugadores = new ArrayList<Jugador>();
 	public int fecha;
 	int cantJugadores = 0;
 	
 	
 	public void inscribir(Jugador unJugador) {
-		if(partidoCompleto)
-		{
-			unJugador.modo.inscribir(unJugador,this);
-		}
-		else
-		{
-			this.agregarJugador(unJugador);
-		}
+
+	}
 		
-	}
 	
-	public void agregarJugador(Jugador unJugador){
-		this.listaJugadores[cantJugadores] = unJugador;
-		cantJugadores++;
+
+	public boolean partidoCompleto() {
+		return listaJugadores.size()==10 && listaJugadores.stream().allMatch((Jugador j) ->  j.modo instanceof Estandar);
+
 	}
 
-	public boolean isPartidoCompleto() {
-		return partidoCompleto;
-	}
 
-	public void setPartidoCompleto(boolean partidoCompleto) {
-		this.partidoCompleto = partidoCompleto;
-	}
-	
 	
 	
 }
