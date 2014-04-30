@@ -1,16 +1,14 @@
 package ofp5;
 
-public class Estandar extends ModoDeInscripcion {
+public class Estandar implements ModoDeInscripcion {
 	
-	public void inscribir(Jugador unJugador, Partido unPartido){
+	public void inscribir(Inscripcion inscripcion, Partido unPartido){
 		//SI EL PARTIDO ESTA INCOMPLETO LO AGREGO SIN PROBLEMAS
-		if (unPartido.partidoIncompleto()){	
-			unPartido.inscribir(unJugador);
-		}
+		unPartido.inscribirEstandar(inscripcion);
 		
 		//SI EL PARTIDO ESTA SEMICOMPLETO ME TENGO QUE FIJAR DE REEMPLAZAR A LOS SOLIDARIOS Y CONDICIONALES
 		//SE USA FOR PORQUE LOS TENGO QUE IR REEMPLAZANDO EN ORDEN QUE SE FUERON ANOTANDO
-		if (unPartido.partidoSemiCompleto()){
+	/*	if (unPartido.partidoSemiCompleto()){
 			
 			for (int i = 0; i < unPartido.listaJugadores.size(); i++) {
 				 
@@ -42,59 +40,6 @@ public class Estandar extends ModoDeInscripcion {
 		}
 	
 	
-	
+	*/
 	}
-	
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

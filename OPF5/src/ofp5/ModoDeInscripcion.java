@@ -1,11 +1,7 @@
 package ofp5;
 
-public abstract class ModoDeInscripcion {
+public interface ModoDeInscripcion {
 
-	public void inscribir(Jugador unJugador, Partido unPartido){
-	
-	
-	}
-
+	void inscribir(Inscripcion inscripcion, Partido unPartido);
 
 }

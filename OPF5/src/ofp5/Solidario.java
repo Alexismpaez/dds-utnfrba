@@ -1,10 +1,12 @@
 package ofp5;
 
-public class Solidario extends ModoDeInscripcion {
+public class Solidario implements ModoDeInscripcion {
 
-	public	void inscribir(Jugador unJugador, Partido unPartido) {
+	public	void inscribir(Inscripcion inscripcion, Partido unPartido) {
+
+		unPartido.inscribirSolidario(inscripcion);
 		//SI EL PARTIDO ESTA INCOMPLETO LO AGREGO SIN PROBLEMAS
-		if (unPartido.partidoIncompleto()){
+	/*	if (unPartido.partidoIncompleto()){
 			unPartido.inscribir(unJugador);
 			
 		}
@@ -25,7 +27,7 @@ public class Solidario extends ModoDeInscripcion {
 		}
 		
 	
-	
+	*/
 	
 	}
 }

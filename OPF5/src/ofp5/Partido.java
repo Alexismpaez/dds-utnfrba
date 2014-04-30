@@ -9,32 +9,78 @@ import java.util.function.Predicate;
 
 public class Partido {
 	public int hora;
-	List<Jugador> listaJugadores = new ArrayList<Jugador>();
+	List<Inscripcion> listaInscripcionesEstandar = new ArrayList<Inscripcion>();
+	List<Inscripcion> listaInscripcionesSolidarias = new ArrayList<Inscripcion>();
+	List<Inscripcion> listaInscripcionesCondicionales = new ArrayList<Inscripcion>();
 	public int fecha;
 	int cantJugadores = 0;
 	
 	
-	public void inscribir(Jugador unJugador) {
-		this.listaJugadores.add(unJugador);
+	public void inscribirEstandar(Inscripcion unaInscripcion) {
+		if (listaInscripcionesEstandar.size()<10){
+			
+			if (!listaVacia(listaInscripcionesSolidarias)){	
+				listaInscripcionesSolidarias.desinscribir();
+						
+			else if (!listaVacia(listaInscripcionesCondicionales)){	
+				listaInscripcionesCondicionales.desinscribir();
+			}
+			
+			listaInscripcionesEstandar.add(unaInscripcion);
+		}
 	}
 	
-	public void desincribir(Jugador unJugador){ 
-	this.listaJugadores.remove(unJugador);
+	public void inscribirSolidario(Inscripcion unaInscripcion) {
+		if (listaInscripcionesEstandar.size()+listaInscripcionesSolidarias.size() <10){
+			
+			if (!listaVacia(listaInscripcionesCondicionales)){	
+				listaInscripcionesCondicionales.desinscribir();
+			}
+			
+			listaInscripcionesSolidarias.add(unaInscripcion);
+		}
+	
 	}
+	
+	public void inscribirCondicional(Inscripcion unaInscripcion) {
+		if (listaInscripcionesEstandar.size()+listaInscripcionesSolidarias.size()+listaInscripcionesCondicionales.size()<10 ){
+			listaInscripcionesCondicionales.add(unaInscripcion);
+		}
+	
+	}
+	
+	/*
+	public void inscribir(Jugador unJugador, ModoDeInscripcion modo) {
+		this.listaInscripciones.add(inscripcion);
+	}
+	
+	public void desincribir(Inscripcion unaInscripcion){ 
+		listaInscripciones.remove(unaInscripcion);
+	}*/
 		
 		
 	//REVISAR SINTAXIS DE MENSAJES PARA MANEJO DE COLECCIONES
-	public boolean partidoCompleto() {
-		return (listaJugadores.size()==10) && listaJugadores.stream().allMatch(j->j.getModo() instanceof Estandar);
-	}
 	
 	//REVISAR SINTAXIS DE MENSAJES PARA MANEJO DE COLECCIONES
+	
+	/*
 	public boolean partidoSemiCompleto() {
-		return (listaJugadores.size()==10) && (listaJugadores.stream().anyMatch(j -> j.getModo() instanceof Solidario)|| listaJugadores.stream().anyMatch(j -> j.getModo() instanceof Condicional));
+		return listaDeInscripcionesLlena() && !sonTodosEstandar();
 	}
 	
-	public boolean partidoIncompleto() {
-		return listaJugadores.size()<10; 
-	}			
+	private boolean sonTodosEstandar(){
+		listaInscripciones.stream().allMatch(j->j.modo == Estandar);
+	}*/
+
+	public boolean listaLlena(List<Inscripcion> lista){
+		return (lista.size()==10);
+	}
+	
+	//seguramente haya alguna funcion de esto en agluna libreria
+	public boolean listaVacia(List<Inscripcion> lista){
+		return (lista.size()==0);
+	}
+	
+
 	
 }

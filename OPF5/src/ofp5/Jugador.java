@@ -2,17 +2,11 @@ package ofp5;
 
 public class Jugador {
 	boolean esRegular;
-	ModoDeInscripcion modo;
 	double reputacion;
 	
-	public void inscribiteEn(Partido unPartido){
-		this.modo.inscribir(this, unPartido);
-	}
-	
-	public ModoDeInscripcion getModo(){
-		
-	return this.modo;	
-	
+	public void inscribiteEn(Partido unPartido, ModoDeInscripcion modo){
+		Inscripcion inscripcion = new Inscripcion(this, modo) ;
+		inscripcion.modo.inscribir(inscripcion, unPartido);
 	}
 	
 	public double getReputacion(){
