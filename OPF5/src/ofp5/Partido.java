@@ -25,12 +25,12 @@ public class Partido {
 		
 	//REVISAR SINTAXIS DE MENSAJES PARA MANEJO DE COLECCIONES
 	public boolean partidoCompleto() {
-		return (listaJugadores.size()==10) && listaJugadores.stream().allMatch(j->j.getModo instanceof Estandar);
+		return (listaJugadores.size()==10) && listaJugadores.stream().allMatch(j->j.getModo() instanceof Estandar);
 	}
 	
 	//REVISAR SINTAXIS DE MENSAJES PARA MANEJO DE COLECCIONES
 	public boolean partidoSemiCompleto() {
-		return (listaJugadores.size()==10) && (listaJugadores.stream().anyMatch(j.getModo-> instanceof Solidario)|| listaJugadores.stream().anyMatch(j.getModo-> instanceof Condicional));
+		return (listaJugadores.size()==10) && (listaJugadores.stream().anyMatch(j -> j.getModo() instanceof Solidario)|| listaJugadores.stream().anyMatch(j -> j.getModo() instanceof Condicional));
 	}
 	
 	public boolean partidoIncompleto() {
